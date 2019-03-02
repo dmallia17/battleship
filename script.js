@@ -6,9 +6,9 @@ Date Begun: 2/28/2019
 
 const compZones = document.querySelectorAll('.compBoard .zone');
 const playerZones = document.querySelectorAll('.playerBoard .zone');
-let gameState = [];
 let playerShip = [];
 let compShip = [];
+let compChoices =[];
 
 gameBegin();
 
@@ -17,7 +17,6 @@ function gameBegin() {
   document.querySelector(".gameOverDisplay").style.display = "none"; //Clears gameOverDisplay
 
   //Clear game arrays
-  gameState = Array.from(Array(50).keys());
   playerShip = [];
   compShip =[];
 
@@ -38,8 +37,10 @@ function gameBegin() {
 function setup(zone) {
   placePlayerShip(zone);
   placeCompShip();
+  for(let i = 0; i < playerZones.length; i++) {
+    compZones[i].addEventListener('click', fire, false);
+  }
 
-  
 }
 
 function placePlayerShip(zone) {
@@ -51,12 +52,15 @@ function placePlayerShip(zone) {
   else if(playerShip.length === 1) {
     if((Number(zone.target.id) === (playerShip[0] + 1)) || (Number(zone.target.id) === (playerShip[0] - 1)) ||
        (Number(zone.target.id) === (playerShip[0] + 5)) || (Number(zone.target.id) === (playerShip[0] - 5))) {
-         playerShip.push(zone.target.id);
-         zone.target.style.backgroundColor = "green";
-         for(let i = 0; i < playerZones.length; i++) {
-           playerZones[i].removeEventListener('click', setup, false);
-         }
-       }
+      if(!(playerShip[0] % 5 === 0 && Number(zone.target.id) === playerShip[0] - 1) &&
+         !(playerShip[0] % 5 === 4 && Number(zone.target.id) === playerShip[0] + 1)){
+        playerShip.push(Number(zone.target.id));
+        zone.target.style.backgroundColor = "green";
+        for(let i = 0; i < playerZones.length; i++) {
+          playerZones[i].removeEventListener('click', setup, false);
+        }
+      }
+    }
   }
 }
 
@@ -68,12 +72,69 @@ function placeCompShip() {
   else if(compShip.length === 1) {
     while(compShip.length !== 2) {
       let choice = Math.floor(Math.random() * 24);
-      if((choice !== compShip[0] && choice >= 0 && choice <= 24) &&
+      if((choice !== compShip[0]) &&
         (Number(choice) === compShip[0] + 1 || Number(choice) === compShip[0] - 1 ||
          Number(choice) === compShip[0] + 5 || Number(choice) === compShip[0] - 5)) {
-           compShip.push(choice);
-           compZones[compShip[1]].style.backgroundColor = "green";
+
+        if(!(compShip[0] % 5 === 0 && Number(choice) === compShip[0] - 1) &&
+           !(compShip[0] % 5 === 4 && Number(choice) === compShip[0] + 1)){
+          compShip.push(choice);
+          compZones[compShip[1]].style.backgroundColor = "green";
+        }
       }
     }
   }
+}
+
+function fire(zone) {
+  playerTurn(zone);
+  compTurn();
+}
+
+function playerTurn(zone){
+  let index = compShip.indexOf(Number(zone.target.id));
+  if(index > -1) {
+    compZones[compShip[index]].style.backgroundColor = "red";
+    compShip.splice(index, 1);
+    zone.target.removeEventListener('click', fire, false);
+    checkWin();
+  }
+  else {
+    zone.target.style.backgroundColor = "blue";
+  }
+}
+
+function compTurn() {
+  let choice = (Math.floor(Math.random() * 24)) + 25;
+  while (compChoices.indexOf(choice) > -1) {
+    choice = (Math.floor(Math.random() * 24)) + 25;
+  }
+  compChoices.push(choice);
+  console.log(choice);
+  let index = playerShip.indexOf(choice);
+  if(index > -1) {
+    playerZones[choice % 25].style.backgroundColor = "red";
+    playerShip.splice(index, 1);
+    checkWin();
+  }
+  else {
+    playerZones[choice % 25].style.backgroundColor = "blue";
+  }
+}
+
+function checkWin() {
+  if(playerShip.length === 0) {
+    gameOver("Computer Wins");
+  }
+  else if(compShip.length === 0) {
+    gameOver("Humanity Wins");
+  }
+}
+
+function gameOver(winner) {
+  for(let i = 0; i < playerZones.length; i++) {
+    compZones[i].removeEventListener('click', fire, false);
+  }
+  document.querySelector(".gameOverDisplay").style.display = "block";
+  document.querySelector(".gameOverDisplay .Winner").innerText = winner;
 }
