@@ -1,4 +1,8 @@
-
+/*
+File Name: script.js
+Author: Daniel Mallia and Jayson Tan
+Date Begun: 2/28/2019
+*/
 
 const compZones = document.querySelectorAll('.compBoard .zone');
 const playerZones = document.querySelectorAll('.playerBoard .zone');
