@@ -1,0 +1,86 @@
+/*
+File Name: style.css
+Authors: Daniel Mallia and Jayson Tan
+Date Begun: 2/28/2019
+*/
+
+/*
+Page background
+*/
+html {
+  background: linear-gradient(blue, black);
+  height: 100%;
+  background-attachment: fixed;
+}
+
+/*
+Top titles
+*/
+h1, h2 {
+  font-family: "Courier New";
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  padding: 5px;
+  margin: 5px;
+}
+
+/*
+Instructions
+*/
+h3 {
+  font-family: "Courier New";
+  position: absolute;
+  font-weight: bold;
+  text-align: left;
+  color: white;
+  padding: 5px;
+  margin: 5px;
+  width: 400px;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+/*
+Creates divider between boards.
+*/
+.playerBoard tr:first-child td {
+  border-top: 5px solid black;
+}
+
+/*
+Zone formatting.
+*/
+td {
+  border: 1px solid black;
+  height: 50px;
+  width: 100px;
+  cursor: pointer;
+}
+
+.compBoard{
+  background-color: gray;
+}
+
+.playerBoard{
+  background-color: white;
+}
+
+/*
+Results display.
+*/
+.gameOverDisplay{
+  display: none;
+  margin: 0 auto;
+  background-color: red;
+  color: white;
+  height: 200px;
+  width: 300px;
+  text-align: center;
+  font-family: "Courier New";
+  font-weight: bold;
+  font-size: 30px;
+}
