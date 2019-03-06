@@ -1,7 +1,9 @@
 /*
+Project Name: Battleship
 File Name: script.js
 Author: Daniel Mallia and Jayson Tan
-Date Begun: 2/28/2019
+Date Begun: 02/28/2019
+Last Edited: 03/05/2019
 */
 
 const compZones = document.querySelectorAll('.compBoard .zone');
@@ -11,7 +13,6 @@ let compShip = [];
 let compChoices =[];
 
 gameBegin();
-
 
 function gameBegin() {
   document.querySelector(".gameOverDisplay").style.display = "none"; //Clears gameOverDisplay
@@ -32,18 +33,19 @@ function gameBegin() {
   }
 }
 
-
-
 function setup(zone) {
   placePlayerShip(zone);
-  placeCompShip();
-  for(let i = 0; i < playerZones.length; i++) {
-    compZones[i].addEventListener('click', fire, false);
-  }
+  placeCompShip()
 
+  if(playerShip.length === 2 && compShip.length === 2) {    // ensures playerShip is placed first                        
+    for(let i = 0; i < playerZones.length; i++) {
+      compZones[i].addEventListener('click', fire, false);
+    }
+  }
 }
 
-function placePlayerShip(zone) {
+
+function placePlayerShip(zone) { 
   if(playerShip.length === 0) {
     playerShip.push(Number(zone.target.id));
     zone.target.removeEventListener('click', setup, false);
@@ -91,7 +93,7 @@ function fire(zone) {
   compTurn();
 }
 
-function playerTurn(zone){
+function playerTurn(zone) {
   let index = compShip.indexOf(Number(zone.target.id));
   if(index > -1) {
     compZones[compShip[index]].style.backgroundColor = "red";
@@ -100,6 +102,7 @@ function playerTurn(zone){
     checkWin();
   }
   else {
+    zone.target.removeEventListener('click', fire, false);    // prevents from clicking the same cell and then invoking pcTurn
     zone.target.style.backgroundColor = "blue";
   }
 }
@@ -107,10 +110,11 @@ function playerTurn(zone){
 function compTurn() {
   let choice = (Math.floor(Math.random() * 24)) + 25;
   while (compChoices.indexOf(choice) > -1) {
+    console.log(compChoices.indexOf(choice))
     choice = (Math.floor(Math.random() * 24)) + 25;
   }
   compChoices.push(choice);
-  console.log(choice);
+  //console.log(choice);
   let index = playerShip.indexOf(choice);
   if(index > -1) {
     playerZones[choice % 25].style.backgroundColor = "red";
@@ -120,6 +124,10 @@ function compTurn() {
   else {
     playerZones[choice % 25].style.backgroundColor = "blue";
   }
+}
+
+function smartChoice () {
+  
 }
 
 function checkWin() {
@@ -138,3 +146,4 @@ function gameOver(winner) {
   document.querySelector(".gameOverDisplay").style.display = "block";
   document.querySelector(".gameOverDisplay .Winner").innerText = winner;
 }
+

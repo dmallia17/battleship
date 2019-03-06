@@ -1,4 +1,4 @@
-<!--File Name: battleship.html 
+<!--File Name: battleship.html
 Authors: Daniel Mallia and Jayson Tan
 Date Begun: 2/28/2019
 -->
@@ -8,20 +8,16 @@ Date Begun: 2/28/2019
 <head>
   <meta charset="UTF-8">
   <title>Battleship V1</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
   <h1>BATTLESHIP</h1>
   <h2>by Daniel Mallia and Jayson Tan</h2>
-  <button onClick="gameBegin()">Replay/Restart</button>
-
-  <!--Instructions Pane-->
-  <h3>Game Instructions: <br>
-      1. Place your ship (only vertical/horizontal). <br>
-      2. Ships are two zones long. <br>
-      3. Your ship is green, a miss on either side is blue, a hit is red. <br>
-      4. Enjoy! <br>
-    </h3>
+  <div class="centerButton">
+  <p>
+    <button class="gameBeginClass" onclick="gameBegin()">Replay/Restart</button>
+  </p>
+  </div>
 
   <!--Computer's Board -->
   <table class="compBoard">
@@ -101,11 +97,25 @@ Date Begun: 2/28/2019
     </tr>
   </table>
 
-  <div class="gameOverDisplay">
-    <div class="Winner"> Test  
+  <!--Instructions Pane-->
+  <p>
+    <div class="instructions-container">
+      <div class="instructions">
+        <div class="gameTitle">Game Instructions:</div>
+      <ol>
+        <li>Place your ship (only vertical/horizontal). </li>
+        <li>Ships are two zones long.</li>
+        <li>Your ship is green, a miss on either side is blue, a hit is red.</li>
+        <li>Enjoy!</li>
+      </ol>
+      </div>
     </div>
+  </p>
+
+  <div class="gameOverDisplay">
+    <div class="Winner">Test</div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="scripts/script.js"></script>
 </body>
 </html>
