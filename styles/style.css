@@ -1,0 +1,110 @@
+/*
+File Name: style.css
+Authors: Daniel Mallia and Jayson Tan
+Date Begun: 2/28/2019
+*/
+
+/*
+Page background
+*/
+html {
+  background: linear-gradient(blue, black);
+  background-attachment: fixed;
+}
+
+/*
+Top titles
+*/
+h1, h2 {
+  font-family: "Courier New", "Arial", sans-serif;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  margin: 5px;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+/*
+Zone formatting.
+*/
+td {
+  border: 1px solid black;
+  height: 50px;
+  width: 100px;
+  cursor: pointer;
+}
+
+/* Reformatted buttons */
+
+.centerButton {
+  text-align: center;
+}
+
+.gameBeginClass {
+  text-align: center;
+  font-size: 14px;
+  font-family: "Courier New", "Arial", sans-serif;
+  background-color: #9ea9ff; /*baby blue*/
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* Reformatted instructions and position */
+
+.instructions-container {
+  text-align: left;
+  color: white;
+  font-family: "Courier New", "Arial", sans-serif;
+  margin: 0 auto;
+  font-weight: bold;
+  width: 500px;
+}
+
+.gameTitle {
+  text-align: center;
+}
+
+
+/*
+Creates divider between boards.
+*/
+.playerBoard tr:first-child td {
+  border-top: 5px solid black;
+}
+
+
+.compBoard{
+  background-color: gray;
+}
+
+.playerBoard{
+  background-color: white;
+}
+
+/*
+Results display.
+*/
+.gameOverDisplay{
+  font-family: "Courier New", Arial, sans-serif;
+  display: none;
+  width: 200px;
+  top: 120px;
+  background-color: rgba(158, 169, 255, .75);
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  margin-left: -100px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  text-align: center;
+  border-radius: 5px;
+  color: black;
+  font-size: 2em;
+}
