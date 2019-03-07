@@ -1,0 +1,40 @@
+*************************************************************************
+BUGS AND GENERAL IMPROVEMENTS
+*************************************************************************
+Project Name: Battleship
+Author: Daniel Mallia / Jayson Tan
+Version: V1 
+
+Logging Method 
+(Dan, please feel free to change if you think of a better logging method): 
+[MM/DD/LN/FL]: MM = Month, DD = Days, LN = bug number, FL = File name 
+HT = HTML
+CS = CSS
+HC = HTML and CSS 
+JS = JavaScript
+
+Jayson's Notes: 
+Logged: 3/2/19
+[030201JS] compTurn gets invoked despite playerTurn fires on same cell 
+[030202HC] HTML text overlays over grid, preventing player from selecting cells
+[030203HC] Resizing windows displaces grid and grid is not centered 
+[030204JS] Smarter computer 
+- General fixes
+
+Logged: 3/5/19
+[030501JS] Need to check all ships are placed first before fire() 
+[030302JS] Initial gameBegin checks as well as after clicking 'Replay/Restart' 
+[030503JS] Buggy on Chrome, OK on Firefox, need to test with Dan
+- General fixes 
+
+Dan's Notes:
+Logged: 3/7/2019
+[030701JS] Game freezing after multiple runs. Resolved by clearing CompChoices array. 
+
+Fixed Bugs:
+[030201]
+[030202]
+[030203]
+[030501]
+[030502]
+[030701] Same issue as [030503JS].
