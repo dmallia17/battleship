@@ -27,10 +27,14 @@ Logged: 3/5/19
 [030503JS] Buggy on Chrome, OK on Firefox, need to test with Dan
 - General fixes 
 
+Dan's Notes:
+Logged: 3/7/2019
+[030701JS] Game freezing after multiple runs. Resolved by clearing CompChoices array. 
+
 Fixed Bugs:
 [030201]
 [030202]
 [030203]
 [030501]
 [030502]
-
+[030701] Same issue as [030503JS].

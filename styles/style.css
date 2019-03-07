@@ -13,7 +13,7 @@ html {
 }
 
 /*
-Top titles
+Top titles - default Courier New; else Arial or sans-serif.
 */
 h1, h2 {
   font-family: "Courier New", "Arial", sans-serif;
@@ -38,12 +38,16 @@ td {
   cursor: pointer;
 }
 
-/* Reformatted buttons */
-
+/*
+Button alignment
+*/
 .centerButton {
   text-align: center;
 }
 
+/*
+Button characteristics
+*/
 .gameBeginClass {
   text-align: center;
   font-size: 14px;
@@ -56,8 +60,16 @@ td {
   cursor: pointer;
 }
 
-/* Reformatted instructions and position */
+/*
+Game Instructions Alignment
+*/
+.gameInstructions {
+  text-align: center;
+}
 
+/*
+Instructions Block
+*/
 .instructions-container {
   text-align: left;
   color: white;
@@ -67,29 +79,29 @@ td {
   width: 500px;
 }
 
-.gameTitle {
-  text-align: center;
-}
-
-
 /*
-Creates divider between boards.
+Creates divider between player and computer boards.
 */
 .playerBoard tr:first-child td {
   border-top: 5px solid black;
 }
 
-
+/*
+Computer board color.
+*/
 .compBoard{
   background-color: gray;
 }
 
+/*
+Player board color.
+*/
 .playerBoard{
   background-color: white;
 }
 
 /*
-Results display.
+Result display.
 */
 .gameOverDisplay{
   font-family: "Courier New", Arial, sans-serif;
