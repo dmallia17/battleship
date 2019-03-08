@@ -19,5 +19,5 @@ Run Instructions and Notes:
 ## Authors
 
 * **Daniel Mallia** (https://github.com/dmallia17)
-* **Jayson Tan** (https:github.com/tanj299)
+* **Jayson Tan** (https://github.com/tanj299)
 
